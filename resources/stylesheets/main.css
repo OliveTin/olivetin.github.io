@@ -56,7 +56,7 @@ div.promoImages img {
 
 .promoBanner {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: min-content auto;
 	margin-bottom: 2em;
 }
 
