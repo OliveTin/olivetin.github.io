@@ -1,0 +1,86 @@
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+}
+
+.contentWrap {
+	width: 60%;
+	margin: auto;
+}
+
+@media (max-width: 640px) {
+	.contentWrap {
+		width: auto;
+		padding: .5em;
+	}
+}
+
+header {
+	background-color: black;
+	color: white;
+}
+
+header a, header a:visited {
+	color: white;
+	padding: .5em;
+}
+
+header ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+header li {
+	display: inline-block;
+}
+
+div.promo {
+	background-color: #efefef;
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+
+div.promoImages {
+	text-align: center;
+}
+
+div.promoImages img {
+	height: 360px;
+	transition: visibility 0s, opacity 0.5s linear;
+}
+
+.promoBanner {
+	display: grid;
+	grid-template-columns: auto auto;
+	margin-bottom: 2em;
+}
+
+.promoText * {
+	margin: 0;
+}
+
+img#logo {
+	align-self: center;
+	height: 100%;
+}
+
+
+h1, h2 {
+	font-weight: lighter;
+}
+
+main li {
+	margin-bottom: 1em;
+}
+
+footer {
+	font-size: smaller;
+	border-top: 1px dashed #666;
+	text-align: center;
+	padding: 2em;
+}

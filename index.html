@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>OliveTin</title>
+
+		<link rel = "stylesheet" type = "text/css" href = "resources/stylesheets/main.css" />
+		<link rel = "shortcut icon" type = "image/png" href = "resources/images/logo.png" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<header aria-label = "Header, with main navigation">
+			<div class = "contentWrap" role = "none">
+				<nav aria-label = "Main navigation">
+					<ul role = "none">
+						<li><a href = "/">Homepage</a></li>
+						<li><a href = "https://docs.olivetin.app">Documentation</a></li>
+						<li><a href = "https://discord.gg/jhYWWpNJ3v" target = "_new">Chat on Discord</a></li>
+						<li><a href = "https://github.com/OliveTin/OliveTin" target = "_new">Code on GitHub</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main aria-label = "Main content">
+			<div class = "promo">
+				<div class = "contentWrap" role = "none">
+					<div class = "promoBanner">
+						<img id = "logo" src = "resources/images/logo.png" alt = "OliveTin logo" style = "width: 4em; height: 4em;" />
+						<div class = "promoText">
+						<h1>OliveTin</h1>
+
+						<p>OliveTin is a simple web interface for running Linux shell commands.</p>
+						</div>
+					</div>
+
+					<div class = "promoImages">
+						<img hidden src = "resources/images/promo1.jpg" alt = "Screenshot 1" />
+						<img hidden src = "resources/images/promo2.png" alt = "Screenshot 2" />
+
+						<p>See it in action more with some <a href = "https://www.youtube.com/channel/UCE0GT30C2DJzpIhIwlBRm5A" target = "_new">OliveTin demo videos on YouTube</a>.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class = "contentWrap">
+				<h2>Use cases</h2>
+
+				<ul>
+					<li>Give controlled access to run shell commands to less technical folks who cannot be trusted with SSH. I use this so my family can podman restart plex without asking me, and without giving them shell access!</li>
+
+					<li> Great for home automation tablets stuck on walls around your house - I use this to turn Hue lights on and off for example.</li>
+
+					<li>Sometimes SSH access isn’t possible to a server, or you are feeling too lazy to type a long command you run regularly! I use this to send Wake on Lan commands to servers around my house.</li>
+				</ul>
+
+				<h2>Features</h2>
+
+				<ul>
+					<li><strong>Responsive</strong> - great for tablets and mobile, with a touch-friendly UI</li>
+					<li><strong>Super simple config in YAML</strong> - because if it’s not YAML now-a-days, it’s not "cloud native" :-)</li>
+					<li><strong>Dark mode</strong> - for those of you that roll that way.</li>
+					<li><strong>Accessible</strong> - passes all the accessibility checks in Firefox, and issues with accessibility are taken seriously.</li>
+					<li><strong>Container</strong> - available for quickly testing and getting it up and running, great for the selfhosted community.</li>
+					<li><strong>Integrate with anything</strong> - OliveTin just runs Linux shell commands, so theoretially you could integrate with a bunch of stuff just by using curl, ping, etc. However, writing your own shell scripts is a great way to extend OliveTin.</li>
+					<li><strong>Lightweight on resources</strong> - uses only a few MB of RAM and barely any CPU. Written in Go, with a web interface written as a modern, responsive, Single Page App that uses the REST/gRPC API.</li>
+					<li><strong>Good amount of unit tests and style checks</strong> - helps potential contributors be consistent, and helps with maintainability.</li>
+				</ul>
+
+				<h2>Download</h2>
+
+				<p>Downloads can be found on the <a href = "https://github.com/jamesread/OliveTin/releases">GitHub project releases page</a>.
+			</div>
+
+			<script type = "text/javascript">
+				window.promoImages = document.querySelectorAll('.promoImages img');
+				window.currentPromoIndex = 0;
+
+				console.log(window.promoImages);
+
+				let imageFlickerFunction = () => {
+					let currentPromoImage = window.promoImages[window.currentPromoIndex]
+
+					if (window.currentPromoIndex == window.promoImages.length - 1) {
+						window.currentPromoIndex = 0;
+					} else { 
+						window.currentPromoIndex++;
+					}
+
+					let nextPromoImage = window.promoImages[window.currentPromoIndex];
+
+					currentPromoImage.hidden = true;
+					nextPromoImage.hidden = false;
+				}
+
+				imageFlickerFunction();
+				setInterval(imageFlickerFunction, 2000);
+			</script>
+		</main>
+
+		<footer aria-label = "Footer">
+			<div class = "contentWrap" role = "none">
+				OliveTin
+			</div>
+		</footer>
+	</body>
+</html>
