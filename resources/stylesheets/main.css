@@ -50,7 +50,7 @@ div.promoImages {
 }
 
 div.promoImages img {
-	height: 360px;
+	max-width: 80%;
 	transition: visibility 0s, opacity 0.5s linear;
 }
 
