@@ -46,7 +46,7 @@
 					</div>
 
 					<div class = "promoImages">
-						<img hidden src = "resources/images/promo1.jpg" alt = "Screenshot 1" />
+						<img hidden src = "resources/images/promo1.png" alt = "Screenshot 1" />
 						<img hidden src = "resources/images/promo2.png" alt = "Screenshot 2" />
 						<img hidden src = "resources/images/promo3.png" alt = "Screenshot 3" />
 						<img hidden src = "resources/images/promo4.png" alt = "Screenshot 4" />
@@ -70,8 +70,27 @@
 				<h2>Features</h2>
 
 				<ul>
+					<li><strong>Super simple config in YAML</strong> - because YAML is the future :-)</li>
+<pre>
+logLevel: "DEBUG"
+
+actions:   
+  # This will send 1 ping (-c 1)
+  # Docs: https://docs.olivetin.app/action-ping.html
+- title: Ping example.com
+  shell: ping google.com -c 1 
+  icon: ping
+
+- title: Run backup script
+  shell: echo "Backup started\nBackup complete! 17 seconds. 2mb"
+  icon: '&#128190;'
+    
+- title: "Run Ansible Playbook"
+  icon: "&#x1F1E6"
+  shell: ansible-playbook site.yml 
+  timeout: 120
+</pre>
 					<li><strong>Responsive</strong> - great for tablets and mobile, with a touch-friendly UI</li>
-					<li><strong>Super simple config in YAML</strong> - because if it’s not YAML now-a-days, it’s not "cloud native" :-)</li>
 					<li><strong>Dark mode</strong> - for those of you that roll that way.</li>
 					<li><strong>Accessible</strong> - passes all the accessibility checks in Firefox, and issues with accessibility are taken seriously.</li>
 					<li><strong>Container</strong> - available for quickly testing and getting it up and running, great for the selfhosted community.</li>
