@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>OliveTin - an app to run your Linux shell commands from a web interface.</title>
+		<title>OliveTin - give safe and simple access to predefined shell commands from a web interface</title>
 		<meta name = "description" content = "Useful for routine jobs like restarting services, starting backup scripts, or sending pings, when direct SSH access is difficult, not possible, or a just pain to use." />
 
 		<link rel = "stylesheet" type = "text/css" href = "resources/stylesheets/main.css" />
@@ -12,7 +12,7 @@
 
 		<meta name = "viewport" content="width=device-width, initial-scale=1.0">
 
-		<meta property="og:title" content="OliveTin - run your Linux shell commands from a web interface." />
+		<meta property="og:title" content="OliveTin - give safe and simple access to predefined shell commands from a web interface" />
 		<meta property="og:description" content="Useful for routine jobs like restarting services, starting backup scripts, or sending pings, when direct SSH access is difficult, not possible, or a just pain to use." />
 		<meta property="og:image" content="https://www.olivetin.app/resources/images/promo2.png" />
 		<meta property="og:url" content="https://www.olivetin.app/" />
@@ -41,7 +41,7 @@
 						<div class = "promoText">
 						<h1>OliveTin</h1>
 
-						<p>An app to run your Linux shell commands from a web interface.</p>
+						<p>Give <strong>safe</strong> and <strong>simple</strong> access to predefined shell commands from a web interface.</p>
 						</div>
 					</div>
 
@@ -57,14 +57,18 @@
 			</div>
 
 			<div class = "contentWrap">
-				<h2>Use cases</h2>
-
+				<h2>Use case: <strong>Safely</strong> give access to commands, for less technical people;</h2>
 				<ul>
-					<li>Give controlled access to run shell commands to less technical folks who cannot be trusted with SSH. I use this so my family can podman restart plex without asking me, and without giving them shell access!</li>
+					<li>eg: Give your family a button to <tt>podman restart plex</tt>
+					<li>eg: Give junior admins a simple web form with dropdowns, to start your custom script. <tt>backupScript.sh --folder {{ customerName }}</tt></li>
+					<li>eg: Enable SSH access to the server for the next 20 mins <tt>firewall-cmd --add-service ssh --timeout 20m</tt></li>
+				</ul>
 
-					<li> Great for home automation tablets stuck on walls around your house - I use this to turn Hue lights on and off for example.</li>
-
-					<li>Sometimes SSH access isn’t possible to a server, or you are feeling too lazy to type a long command you run regularly! I use this to send Wake on Lan commands to servers around my house.</li>
+				<h2>Use case: <strong>Simplify</strong> complex commands, make them accessible and repeatable;</h2>
+				<ul>
+					<li>eg: Expose complex commands on touchscreen tablets stuck on walls around your house. <tt>wake-on-lan aa:bb:cc:11:22:33</tt></li>
+					<li>eg: Run long running on your servers from your cell phone. <tt>dnf update -y</tt></li>
+					<li>eg: Define complex commands with lots of preset arguments, and turn a few arguments into dropdown select boxes. <tt>docker rm {{ container }} && docker create {{ container }} && docker start {{ container }}</tt>
 				</ul>
 
 				<h2>Features</h2>
@@ -74,27 +78,31 @@
 <pre>
 logLevel: "DEBUG"
 
-actions:   
-  # This will send 1 ping (-c 1)
-  # Docs: https://docs.olivetin.app/action-ping.html
-- title: Ping example.com
-  shell: ping google.com -c 1 
+- title: Ping host
+  shell: ping {{ host }} -c {{ count }}
   icon: ping
+  arguments:
+    - name: host
+      title: host
+      type: ascii_identifier
+      default: example.com
 
-- title: Run backup script
-  shell: echo "Backup started\nBackup complete! 17 seconds. 2mb"
-  icon: '&#128190;'
-    
-- title: "Run Ansible Playbook"
-  icon: "&#x1F1E6"
-  shell: ansible-playbook site.yml 
-  timeout: 120
+    - name: count
+      title: Count
+      type: int
+      default: 1
+  
+  # Restart http on host "webserver1"
+  # Docs: https://docs.olivetin.app/action-ssh.html
+- title: restart httpd
+  icon: restart
+  shell: ssh root@webserver1 'service httpd restart'
 </pre>
 					<li><strong>Responsive</strong> - great for tablets and mobile, with a touch-friendly UI</li>
 					<li><strong>Dark mode</strong> - for those of you that roll that way.</li>
 					<li><strong>Accessible</strong> - passes all the accessibility checks in Firefox, and issues with accessibility are taken seriously.</li>
 					<li><strong>Container</strong> - available for quickly testing and getting it up and running, great for the selfhosted community.</li>
-					<li><strong>Integrate with anything</strong> - OliveTin just runs Linux shell commands, so theoretially you could integrate with a bunch of stuff just by using curl, ping, etc. However, writing your own shell scripts is a great way to extend OliveTin.</li>
+					<li><strong>Integrate with anything</strong> - OliveTin just runs shell commands, so theoretially you could integrate with a bunch of stuff just by using curl, ping, etc. However, writing your own shell scripts is a great way to extend OliveTin.</li>
 					<li><strong>Lightweight on resources</strong> - uses only a few MB of RAM and barely any CPU. Written in Go, with a web interface written as a modern, responsive, Single Page App that uses the REST/gRPC API.</li>
 					<li><strong>Good amount of unit tests and style checks</strong> - helps potential contributors be consistent, and helps with maintainability.</li>
 				</ul>
@@ -140,7 +148,7 @@ actions:
 {
   "@context": "https://schema.org/", 
   "@type": "SoftwareApplication", 
-  "name": "OliveTin - an app to run your Linux shell commands from a web interface",
+  "name": "OliveTin - give safe and simple access to predefined shell commands from a web interface",
   "url": "https://www.olivetin.app",
   "downloadUrl": "https://github.com/OliveTin/OliveTin/releases",
   "screenshot": "https://www.olivetin.app/resources/images/promo2.png",
