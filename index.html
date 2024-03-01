@@ -46,10 +46,7 @@
 					</div>
 
 					<div class = "promoImages">
-						<img hidden src = "resources/images/promo1.png" alt = "Screenshot 1" />
-						<img hidden src = "resources/images/promo2.png" alt = "Screenshot 2" />
-						<img hidden src = "resources/images/promo3.png" alt = "Screenshot 3" />
-						<img hidden src = "resources/images/promo4.png" alt = "Screenshot 4" />
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/UBgOfNrzId4?si=Guu70KwcIn8EDemS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 						<p>See it in action more with some <a href = "https://www.youtube.com/channel/UCE0GT30C2DJzpIhIwlBRm5A" target = "_new">OliveTin demo videos on YouTube</a>.</p>
 					</div>
@@ -117,31 +114,6 @@ logLevel: "DEBUG"
 
 				<p>Contributions to documentation, code, and other parts of the project are most welcome. You can find the <a href = "https://github.com/OliveTin/OliveTin/blob/main/CONTRIBUTING.adoc">contribution guidelines</a> in the repository.</p>
 			</div>
-
-			<script type = "text/javascript">
-				window.promoImages = document.querySelectorAll('.promoImages img');
-				window.currentPromoIndex = 0;
-
-				console.log(window.promoImages);
-
-				let imageFlickerFunction = () => {
-					let currentPromoImage = window.promoImages[window.currentPromoIndex]
-
-					if (window.currentPromoIndex == window.promoImages.length - 1) {
-						window.currentPromoIndex = 0;
-					} else { 
-						window.currentPromoIndex++;
-					}
-
-					let nextPromoImage = window.promoImages[window.currentPromoIndex];
-
-					currentPromoImage.hidden = true;
-					nextPromoImage.hidden = false;
-				}
-
-				imageFlickerFunction();
-				setInterval(imageFlickerFunction, 2000);
-			</script>
 		</main>
 
 		<footer aria-label = "Footer">
