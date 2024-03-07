@@ -91,6 +91,7 @@ div.highlight {
   padding: 2em;
   border-radius: 1em;
   white-space: pre-wrap;
+  color: black;
 }
 
 span.pl-ent {
