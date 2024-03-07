@@ -72,30 +72,43 @@
 				<h2>Features</h2>
 
 				<ul>
-					<li><strong>Super simple config in YAML</strong> - because YAML is the future :-)</li>
-<pre>
-logLevel: "DEBUG"
+					<li><strong>Super simple config in YAML</strong> - Configuration as code, rather than configuration via a million little options in an admin panel :-)</li>
 
-- title: Ping host
-  shell: ping {{ host }} -c {{ count }}
-  icon: ping
-  arguments:
-    - name: host
-      title: host
-      type: ascii_identifier
-      default: example.com
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c"><span class="pl-c">#</span> Listen on all addresses available, port 1337</span>
+<span class="pl-ent">listenAddressSingleHTTPFrontend</span>: <span class="pl-s">0.0.0.0:1337</span>
 
-    - name: count
-      title: Count
-      type: int
-      default: 1
-  
-  # Restart http on host "webserver1"
-  # Docs: https://docs.olivetin.app/action-ssh.html
-- title: restart httpd
-  icon: restart
-  shell: ssh root@webserver1 'service httpd restart'
-</pre>
+<span class="pl-c"><span class="pl-c">#</span> Choose from INFO (default), WARN and DEBUG</span>
+<span class="pl-ent">logLevel</span>: <span class="pl-s"><span class="pl-pds">"</span>INFO<span class="pl-pds">"</span></span>
+
+<span class="pl-c"><span class="pl-c">#</span> Actions (buttons) to show up on the WebUI:</span>
+<span class="pl-ent">actions</span>:
+  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-container-control.html</span>
+- <span class="pl-ent">title</span>: <span class="pl-s">Restart Plex</span>
+  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
+  <span class="pl-ent">shell</span>: <span class="pl-s">docker restart plex</span>
+
+  <span class="pl-c"><span class="pl-c">#</span> This will send 1 ping</span>
+  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ping.html</span>
+- <span class="pl-ent">title</span>: <span class="pl-s">Ping host</span>
+  <span class="pl-ent">shell</span>: <span class="pl-s">ping {{ host }} -c {{ count }}</span>
+  <span class="pl-ent">icon</span>: <span class="pl-s">ping</span>
+  <span class="pl-ent">arguments</span>:
+    - <span class="pl-ent">name</span>: <span class="pl-s">host</span>
+      <span class="pl-ent">title</span>: <span class="pl-s">host</span>
+      <span class="pl-ent">type</span>: <span class="pl-s">ascii_identifier</span>
+      <span class="pl-ent">default</span>: <span class="pl-s">example.com</span>
+
+    - <span class="pl-ent">name</span>: <span class="pl-s">count</span>
+      <span class="pl-ent">title</span>: <span class="pl-s">Count</span>
+      <span class="pl-ent">type</span>: <span class="pl-s">int</span>
+      <span class="pl-ent">default</span>: <span class="pl-c1">1</span>
+
+  <span class="pl-c"><span class="pl-c">#</span> Restart http on host "webserver1"</span>
+  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ssh.html</span>
+- <span class="pl-ent">title</span>: <span class="pl-s">restart httpd</span>
+  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
+  <span class="pl-ent">shell</span>: <span class="pl-s">ssh root@webserver1 'service httpd restart'</span></pre><div class="zeroclipboard-container">
+  </div></div>
 					<li><strong>Responsive</strong> - great for tablets and mobile, with a touch-friendly UI</li>
 					<li><strong>Dark mode</strong> - for those of you that roll that way.</li>
 					<li><strong>Accessible</strong> - passes all the accessibility checks in Firefox, and issues with accessibility are taken seriously.</li>
