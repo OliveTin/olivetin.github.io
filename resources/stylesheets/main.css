@@ -85,6 +85,16 @@ footer {
 	padding: 2em;
 }
 
+ul.bigblocks { 
+        list-style: none;
+	margin: 0;
+	padding; 0;
+}
+
+ul.bigblocks li {
+        padding: 1em;
+}
+
 div.highlight {
   background-color: #efefef;
   color: beige;
