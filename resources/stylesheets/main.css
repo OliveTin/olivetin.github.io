@@ -40,9 +40,23 @@ header li {
 }
 
 div.promo {
-	background-color: #efefef;
 	padding-bottom: 1em;
 	padding-top: 1em;
+}
+
+div.alt-section:nth-child(even) {
+  background-color: #fff;
+}
+
+div.alt-section:nth-child(odd) {
+  background-color: #dee3e7;
+  clip-path: polygon(0 calc(+3vw),100% 0,100% 100%,0 calc(100% - 3vw));
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+div.alt-section:first-child {
+  clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 3vw));
 }
 
 div.promoImages {
@@ -85,14 +99,23 @@ footer {
 	padding: 2em;
 }
 
-ul.bigblocks { 
-        list-style: none;
+ul.bigblocks {
+  list-style: none;
 	margin: 0;
-	padding; 0;
+	padding: 0;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 ul.bigblocks li {
-        padding: 1em;
+  display: block;
+}
+
+ul.bigblocks li strong {
+  text-transform: uppercase;
+  clear: both;
+  display: block;
 }
 
 div.highlight {

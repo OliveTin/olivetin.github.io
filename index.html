@@ -35,7 +35,7 @@
 		</header>
 
 		<main aria-label = "Main content">
-			<div class = "promo">
+			<div class = "promo alt-section">
 				<div class = "contentWrap" role = "none">
 					<div class = "promoBanner">
 						<img id = "logo" src = "resources/images/logo.png" alt = "OliveTin logo" style = "width: 4em; height: 4em;" />
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 
-			<div class = "contentWrap">
+			<div class = "contentWrap alt-section ">
 				<h2>Use case: <strong>Safely</strong> give access to commands, for less technical people;</h2>
 				<ul>
 					<li>eg: Give your family a button to <tt>podman restart plex</tt>
@@ -62,71 +62,98 @@
 					<li>eg: Enable SSH access to the server for the next 20 mins <tt>firewall-cmd --add-service ssh --timeout 20m</tt></li>
 				</ul>
 
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+
 				<h2>Use case: <strong>Simplify</strong> complex commands, make them accessible and repeatable;</h2>
 				<ul>
 					<li>eg: Expose complex commands on touchscreen tablets stuck on walls around your house. <tt>wake-on-lan aa:bb:cc:11:22:33</tt></li>
 					<li>eg: Run long-lived commands on your servers from your cell phone. <tt>dnf update -y</tt></li>
 					<li>eg: Define complex commands with lots of preset arguments, and turn a few arguments into dropdown select boxes. <tt>docker rm {{ container }} && docker create {{ container }} && docker start {{ container }}</tt>
 				</ul>
+				</div>
+				</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
 
 				<h2>Features</h2>
 
-				<ul class "bigblocks">
-					<li><strong>Super simple config in YAML</strong> - Configuration as code, rather than configuration via a million little options in an admin panel :-)</li>
-
-<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c"><span class="pl-c">#</span> Listen on all addresses available, port 1337</span>
-<span class="pl-ent">listenAddressSingleHTTPFrontend</span>: <span class="pl-s">0.0.0.0:1337</span>
-
-<span class="pl-c"><span class="pl-c">#</span> Choose from INFO (default), WARN and DEBUG</span>
-<span class="pl-ent">logLevel</span>: <span class="pl-s"><span class="pl-pds">"</span>INFO<span class="pl-pds">"</span></span>
-
-<span class="pl-c"><span class="pl-c">#</span> Actions (buttons) to show up on the WebUI:</span>
-<span class="pl-ent">actions</span>:
-  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-container-control.html</span>
-- <span class="pl-ent">title</span>: <span class="pl-s">Restart Plex</span>
-  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
-  <span class="pl-ent">shell</span>: <span class="pl-s">docker restart plex</span>
-
-  <span class="pl-c"><span class="pl-c">#</span> This will send 1 ping</span>
-  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ping.html</span>
-- <span class="pl-ent">title</span>: <span class="pl-s">Ping host</span>
-  <span class="pl-ent">shell</span>: <span class="pl-s">ping {{ host }} -c {{ count }}</span>
-  <span class="pl-ent">icon</span>: <span class="pl-s">ping</span>
-  <span class="pl-ent">arguments</span>:
-    - <span class="pl-ent">name</span>: <span class="pl-s">host</span>
-      <span class="pl-ent">title</span>: <span class="pl-s">host</span>
-      <span class="pl-ent">type</span>: <span class="pl-s">ascii_identifier</span>
-      <span class="pl-ent">default</span>: <span class="pl-s">example.com</span>
-
-    - <span class="pl-ent">name</span>: <span class="pl-s">count</span>
-      <span class="pl-ent">title</span>: <span class="pl-s">Count</span>
-      <span class="pl-ent">type</span>: <span class="pl-s">int</span>
-      <span class="pl-ent">default</span>: <span class="pl-c1">1</span>
-
-  <span class="pl-c"><span class="pl-c">#</span> Restart http on host "webserver1"</span>
-  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ssh.html</span>
-- <span class="pl-ent">title</span>: <span class="pl-s">restart httpd</span>
-  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
-  <span class="pl-ent">shell</span>: <span class="pl-s">ssh root@webserver1 'service httpd restart'</span></pre>
-</div>
-					<li><strong>Responsive</strong> - great for tablets and mobile, with a touch-friendly UI</li>
-					<li><strong>Dark mode</strong> - for those of you that roll that way.</li>
-					<li><strong>Accessible</strong> - passes all the accessibility checks in Firefox, and issues with accessibility are taken seriously.</li>
-					<li><strong>Container</strong> - available for quickly testing and getting it up and running, great for the selfhosted community.</li>
-					<li><strong>Integrate with anything</strong> - OliveTin just runs shell commands, so theoretially you could integrate with a bunch of stuff just by using curl, ping, etc. However, writing your own shell scripts is a great way to extend OliveTin.</li>
-					<li><strong>Lightweight on resources</strong> - uses only a few MB of RAM and barely any CPU. Written in Go, with a web interface written as a modern, responsive, Single Page App that uses the REST/gRPC API.</li>
-					<li><strong>Good amount of unit tests and style checks</strong> - helps potential contributors be consistent, and helps with maintainability.</li>
+				<ul class = "bigblocks">
+					<li><strong>Responsive</strong> great for tablets and mobile, with a touch-friendly UI</li>
+					<li><strong>Dark mode</strong> for those of you that roll that way.</li>
+					<li><strong>Accessible</strong> passes all the accessibility checks in Firefox, and issues with accessibility are taken seriously.</li>
+					<li><strong>Container</strong> available for quickly testing and getting it up and running, great for the selfhosted community.</li>
+					<li><strong>Integrate with anything</strong> it just runs shell commands - you could integrate with a bunch of stuff just by using curl, ping, etc.</li>
+					<li><strong>Lightweight on resources</strong> uses only a few MB of RAM and barely any CPU, written in Go + JS with relatively few dependencies.</li>
+					<li><strong>Well tested</strong> nobody like bugs.</li>
 				</ul>
+				</div>
+			</div>
 
-				<h2>Download</h2>
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Configuration Example</h2>
 
-				<p>Downloads can be found on the <a href = "https://docs.olivetin.app/choose-package.html">Which download do I need?</a> documentation page.
-	
-				<h2 id = "opensource">Open Source</h2>
+					<p><strong>YAML</strong> - Configuration as code, rather than configuration via a million little options in an admin panel :-)</p>
 
-				<p>This project is open source, and feature requests, bugs, security issues and similar can all be raised via the <a href = "https://github.com/OliveTin/OliveTin/issues/new/choose">OliveTin new issue</a> page in the OliveTin GitHub repository.</p>
+	<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c"><span class="pl-c">#</span> Listen on all addresses available, port 1337</span>
+	<span class="pl-ent">listenAddressSingleHTTPFrontend</span>: <span class="pl-s">0.0.0.0:1337</span>
 
-				<p>Contributions to documentation, code, and other parts of the project are most welcome. You can find the <a href = "https://github.com/OliveTin/OliveTin/blob/main/CONTRIBUTING.adoc">contribution guidelines</a> in the repository.</p>
+	<span class="pl-c"><span class="pl-c">#</span> Choose from INFO (default), WARN and DEBUG</span>
+	<span class="pl-ent">logLevel</span>: <span class="pl-s"><span class="pl-pds">"</span>INFO<span class="pl-pds">"</span></span>
+
+	<span class="pl-c"><span class="pl-c">#</span> Actions (buttons) to show up on the WebUI:</span>
+	<span class="pl-ent">actions</span>:
+	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-container-control.html</span>
+	- <span class="pl-ent">title</span>: <span class="pl-s">Restart Plex</span>
+	  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
+	  <span class="pl-ent">shell</span>: <span class="pl-s">docker restart plex</span>
+
+	  <span class="pl-c"><span class="pl-c">#</span> This will send 1 ping</span>
+	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ping.html</span>
+	- <span class="pl-ent">title</span>: <span class="pl-s">Ping host</span>
+	  <span class="pl-ent">shell</span>: <span class="pl-s">ping {{ host }} -c {{ count }}</span>
+	  <span class="pl-ent">icon</span>: <span class="pl-s">ping</span>
+	  <span class="pl-ent">arguments</span>:
+		- <span class="pl-ent">name</span>: <span class="pl-s">host</span>
+		  <span class="pl-ent">title</span>: <span class="pl-s">host</span>
+		  <span class="pl-ent">type</span>: <span class="pl-s">ascii_identifier</span>
+		  <span class="pl-ent">default</span>: <span class="pl-s">example.com</span>
+
+		- <span class="pl-ent">name</span>: <span class="pl-s">count</span>
+		  <span class="pl-ent">title</span>: <span class="pl-s">Count</span>
+		  <span class="pl-ent">type</span>: <span class="pl-s">int</span>
+		  <span class="pl-ent">default</span>: <span class="pl-c1">1</span>
+
+	  <span class="pl-c"><span class="pl-c">#</span> Restart http on host "webserver1"</span>
+	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ssh.html</span>
+	- <span class="pl-ent">title</span>: <span class="pl-s">restart httpd</span>
+	  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
+	  <span class="pl-ent">shell</span>: <span class="pl-s">ssh root@webserver1 'service httpd restart'</span></pre>
+	</div>
+
+			</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Installation</h2>
+
+					<p>Installation instructions can be found on the <a href = "https://docs.olivetin.app/installation.html">OliveTin installation documentation page</a>.</p>
+
+					<h2>Download</h2>
+
+					<p>Downloads can be found on the <a href = "https://docs.olivetin.app/choose-package.html">Which download do I need?</a> documentation page.
+		
+					<h2 id = "opensource">Open Source</h2>
+
+					<p>This project is open source, and feature requests, bugs, security issues and similar can all be raised via the <a href = "https://github.com/OliveTin/OliveTin/issues/new/choose">OliveTin new issue</a> page in the OliveTin GitHub repository.</p>
+
+					<p>Contributions to documentation, code, and other parts of the project are most welcome. You can find the <a href = "https://github.com/OliveTin/OliveTin/blob/main/CONTRIBUTING.adoc">contribution guidelines</a> in the repository.</p>
+				</div>
 			</div>
 		</main>
 
