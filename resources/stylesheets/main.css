@@ -50,13 +50,13 @@ div.alt-section:nth-child(even) {
 
 div.alt-section:nth-child(odd) {
   background-color: #dee3e7;
-  clip-path: polygon(0 calc(+3vw),100% 0,100% 100%,0 calc(100% - 3vw));
+  clip-path: polygon(0 calc(+2vw),100% 0,100% 100%,0 calc(100% - 2vw));
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
 div.alt-section:first-child {
-  clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 3vw));
+  clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 2vw));
 }
 
 div.promoImages {
@@ -110,6 +110,10 @@ ul.bigblocks {
 
 ul.bigblocks li {
   display: block;
+}
+
+ul.bigblocks li svg {
+  font-size: 2.2em;
 }
 
 ul.bigblocks li strong {
