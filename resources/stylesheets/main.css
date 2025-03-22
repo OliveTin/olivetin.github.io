@@ -145,3 +145,8 @@ span.pl-s {
 span.pl-c {
   color: gray;
 }
+
+video {
+	width: 50%;
+	box-shadow: 0 0 5px gray
+}
