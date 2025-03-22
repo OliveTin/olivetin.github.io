@@ -25,7 +25,7 @@
 				<nav aria-label = "Main navigation">
 					<ul role = "none">
 						<li><a href = "https://www.olivetin.app">Homepage</a></li>
-						<li><a href = "https://docs.olivetin.app">Documentation</a> (<a href = "https://docs.olivetin.app/installation.html">Install Guide</a>) </li>
+						<li><a href = "https://docs.olivetin.app">Documentation</a> (<a href = "docs.olivetin.app/install/intro.html">Install Guide</a>) </li>
 						<li><a href = "https://discord.gg/jhYWWpNJ3v" target = "_new">Chat on Discord</a></li>
 						<li><a href = "https://www.olivetin.app/themes" target = "_new">Themes</a></li>
 						<li><a href = "https://github.com/OliveTin/OliveTin" target = "_new">Code on GitHub</a></li>
@@ -104,7 +104,7 @@
 					<li>
 						<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10 5a1.96 1.96 0 0 0 .796 1.56L5.5 9.986H3.997A1.997 1.997 0 0 0 2 11.983v8.023a1.997 1.997 0 0 0 1.997 1.997h16A2.004 2.004 0 0 0 22 19.999v-8.016a1.997 1.997 0 0 0-1.997-1.997h-1.491L13.21 6.555A1.96 1.96 0 0 0 14 5a2.03 2.03 0 0 0-1-1.721V2h-1v2a1 1 0 1 1-1 1m.995 1.974l.005.001l.017-.002l4.655 3.013h-9.33ZM7 18a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0Zm4 0a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0Zm4 0a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0Zm4 0a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0Z"/></svg>
 
-						<strong><a href = "https://docs.olivetin.app/installation.html">Linux Container</a></strong>
+						<strong><a href = "https://docs.olivetin.app/install/container.html">Linux Container</a></strong>
 						For quickly testing and getting it up and running, great for the selfhosted community.
 					</li>
 
@@ -145,13 +145,13 @@
 
 	<span class="pl-c"><span class="pl-c">#</span> Actions (buttons) to show up on the WebUI:</span>
 	<span class="pl-ent">actions</span>:
-	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-container-control.html</span>
+	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/solutions/container-control-panel/index.html</span>
 	- <span class="pl-ent">title</span>: <span class="pl-s">Restart Plex</span>
 	  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
 	  <span class="pl-ent">shell</span>: <span class="pl-s">docker restart plex</span>
 
 	  <span class="pl-c"><span class="pl-c">#</span> This will send 1 ping</span>
-	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ping.html</span>
+	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action_examples/ping.html</span>
 	- <span class="pl-ent">title</span>: <span class="pl-s">Ping host</span>
 	  <span class="pl-ent">shell</span>: <span class="pl-s">ping {{ host }} -c {{ count }}</span>
 	  <span class="pl-ent">icon</span>: <span class="pl-s">ping</span>
@@ -167,7 +167,7 @@
 		  <span class="pl-ent">default</span>: <span class="pl-c1">1</span>
 
 	  <span class="pl-c"><span class="pl-c">#</span> Restart http on host "webserver1"</span>
-	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action-ssh.html</span>
+	  <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action_examples/ssh-easy.html</span>
 	- <span class="pl-ent">title</span>: <span class="pl-s">restart httpd</span>
 	  <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
 	  <span class="pl-ent">shell</span>: <span class="pl-s">ssh root@webserver1 'service httpd restart'</span></pre>
@@ -180,17 +180,26 @@
 				<div class = "contentWrap">
 					<h2>Installation</h2>
 
-					<p>Installation instructions can be found on the <a href = "https://docs.olivetin.app/installation.html">OliveTin installation documentation page</a>.</p>
+					<p>Installation instructions can be found on the <a href = "https://docs.olivetin.app/install/intro.html">OliveTin installation documentation page</a>.</p>
 
-					<h2>Download</h2>
-
-					<p>Downloads can be found on the <a href = "https://docs.olivetin.app/choose-package.html">Which download do I need?</a> documentation page.
-		
-					<h2 id = "opensource">Open Source</h2>
+					<h2 id = "opensource">Open Source &amp; No Nonsense</h2>
 
 					<p>This project is open source, and feature requests, bugs, security issues and similar can all be raised via the <a href = "https://github.com/OliveTin/OliveTin/issues/new/choose">OliveTin new issue</a> page in the OliveTin GitHub repository.</p>
 
 					<p>Contributions to documentation, code, and other parts of the project are most welcome. You can find the <a href = "https://github.com/OliveTin/OliveTin/blob/main/CONTRIBUTING.adoc">contribution guidelines</a> in the repository.</p>
+
+					<p>
+						<ul>
+							<li>All code and assets are Open Source (AGPL) and <a href = "https://www.gnu.org/philosophy/free-sw.html">free software</a>.</li>
+							<li>No company is paying for development, donations &amp; <a href = "https://docs.olivetin.app/reference/donations_and_sponsorship.html">sponsorship are not accepted</a>.</li>
+							<li>No separate core and premium, plus orpro version or any paid-for extra features or plugins.</li>
+							<li>No SaaS service or "special cloud version".</li>
+							<li>No "anonymous data collection", usage tracking, user tracking, telemetry or email address collection.</li>
+							<li>No requests for reviews in any "app store" or feedback surveys.</li>
+							<li>No prompts to "upgrade to the latest version".</li>
+							<li>No internet-connection required for any functionality.</li>
+						</ul>
+					</p>
 				</div>
 			</div>
 		</main>
