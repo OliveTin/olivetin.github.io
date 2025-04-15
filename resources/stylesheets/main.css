@@ -50,8 +50,6 @@ div.alt-section:nth-child(even) {
 
 div.alt-section:nth-child(odd) {
   background-color: #dee3e7;
-  padding-top: 2em;
-  padding-bottom: 2em;
 }
 
 /*
@@ -88,7 +86,7 @@ img#logo {
 
 
 h1, h2 {
-	font-weight: lighter;
+	color: #303030;
 }
 
 main li {
@@ -143,7 +141,7 @@ span.pl-s {
 }
 
 span.pl-c {
-  color: gray;
+  white-space: pre-wrap;
 }
 
 video {
