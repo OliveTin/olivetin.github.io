@@ -68,6 +68,16 @@
 							<source src = "demo.webm" type = "video/webm" />
 						</video>
 
+						<ul class = "promo-tags" aria-label = "Project highlights">
+							<li>Free and Open Source software (AGPL)</li>
+							<li>Maturity: Production</li>
+							<li><a href = "https://github.com/OliveTin/OliveTin/blob/main/AI.md">AI: Level 2 of 5 (Pair Programmer)</a></li>
+							<br />
+							<li>3.7k GitHub Stars</li>
+							<li>Awesome Selfhosted</li>
+							<li><a href = "#opensource">No Nonsense</a></li>
+						</ul>
+
 						<p>See it in action more with some <a href = "https://www.youtube.com/channel/UCE0GT30C2DJzpIhIwlBRm5A" target = "_blank" rel = "noopener noreferrer">OliveTin demo videos on YouTube</a>.</p>
 					</div>
 				</div>
@@ -75,67 +85,349 @@
 
 			<div class = "alt-section">
 				<div class = "contentWrap">
-				<h2>Use case: <strong>Safely</strong> give access to commands, for less technical people;</h2>
-				<ul>
-					<li>eg: Give your family a button to <tt>podman restart plex</tt></li>
-					<li>eg: Give junior admins a simple web form with dropdowns, to start your custom script. <tt>backupScript.sh --folder {{ customerName }}</tt></li>
-					<li>eg: Enable SSH access to the server for the next 20 mins <tt>firewall-cmd --add-service ssh --timeout 20m</tt></li>
-				</ul>
+					<h2>Easily turn shell commands into buttons</h2>
+					<p class = "section-lead">Define an action in config, refresh the UI, and you get a clickable button — no admin panels required.</p>
+
+					<div class = "showcase-pair">
+						<pre class = "showcase-code" tabindex = "0"><code>actions:
+  - title: Restart Media Server
+    icon: restart
+    shell: echo "Restarting media server..."</code></pre>
+						<figure class = "showcase-figure">
+							<img src = "resources/images/feature-screenshots/yaml-to-button/yaml-to-button.png" alt = "OliveTin Actions page showing a restart button generated from YAML" width = "960" height = "540" loading = "lazy" />
+						</figure>
+					</div>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/action_buttons/create_your_first.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: create your first action
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Safe access for less technical people (or AI agents)</h2>
+					<p class = "section-lead">Give family or junior admins a short list of approved buttons — not SSH, not a shell.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/family-delegated/family-delegated.png" alt = "OliveTin Actions page with a short list of approved buttons for non-admin users" width = "960" height = "540" loading = "lazy" />
+						<figcaption>What non-admins see: a few clear actions, nothing else.</figcaption>
+					</figure>
+
+					<ul>
+						<li>eg: Give your family a button to <tt>systemctl restart media-server</tt></li>
+						<li>eg: Give junior admins a simple web form with dropdowns, to start your custom script. <tt>backupScript.sh --folder {{ customerName }}</tt></li>
+						<li>eg: Enable SSH access to the server for the next 20 mins <tt>firewall-cmd --add-service ssh --timeout 20m</tt></li>
+					</ul>
+
+					<p>The same model helps with <strong>AI agents</strong>: instead of open-ended shell access, an agent only gets the actions you publish. That makes behaviour easier to reason about, and every run is logged — who (or what) started it, with which arguments, and what came back — for transparency and auditability.</p>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/security/acl.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: access control lists
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>See what ran</h2>
+					<p class = "section-lead">Every execution has output, status, and history you can open again later.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/execution-result/execution-result.png" alt = "OliveTin execution results showing completed disk space check output" width = "960" height = "540" loading = "lazy" />
+						<figcaption>Command output in the browser — copyable, searchable in logs.</figcaption>
+					</figure>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/logs/intro.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: logs
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Control arguments with forms</h2>
+					<p class = "section-lead">Typed arguments turn command-line options into dropdowns and validated fields.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/argument-form/argument-form.png" alt = "OliveTin argument form for Ping host with host dropdown and count field" width = "960" height = "540" loading = "lazy" />
+						<figcaption>Users pick a host and count — OliveTin builds the command safely.</figcaption>
+					</figure>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/args/intro.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: arguments
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>OliveTin only uses shell or exec</h2>
+					<p class = "section-lead">It is deliberately lightweight. This makes it agnostic, and portable across tiny ARM and RISC devices up to Linux VMs and Containers, macOS, Windows, and more. There is no plugin system, no extension marketplace, and no built in support for any automation tool or automation system.</p>
+
+					<p>If a program is installed on the host (or reachable over SSH), OliveTin can run it. Your existing scripts, CLIs, and services stay the source of truth — OliveTin is the safe front door, not another stack that reimplements them.</p>
+
+					<ul>
+						<li>No waiting for an official integration or community plugin for the tool you already use</li>
+						<li>No heavyweight platform layer that tries to own every workflow</li>
+						<li>Fewer moving parts: a small binary, YAML config, and the commands you choose</li>
+					</ul>
+
+					<p>OliveTin stays flexible because it only uses primitives. Anything your shell can run, it can turn into a button, webhook, cron job, event or similar.</p>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/action_execution/shellvsexec.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: shell vs exec
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Login in almost any way</h2>
+					<p class = "section-lead">OliveTin supports several login options — from simple local users to OAuth2, JWT, and reverse-proxy trusted headers.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/login-page/login-page.png" alt = "OliveTin login page with local username and password fields" width = "960" height = "540" loading = "lazy" />
+						<figcaption>Local login is one option — plug in the auth that already fits your setup.</figcaption>
+					</figure>
+
+					<ul class = "trigger-list">
+						<li><a href = "https://docs.olivetin.app/security/local.html">Local users</a> — username and password in <tt>config.yaml</tt></li>
+						<li><a href = "https://docs.olivetin.app/security/oauth2.html">OAuth2</a> — including guides for common identity providers</li>
+						<li><a href = "https://docs.olivetin.app/security/jwt.html">JWT</a>
+							<ul>
+								<li><a href = "https://docs.olivetin.app/security/jwt_hmac.html">JWT with HMAC</a></li>
+								<li><a href = "https://docs.olivetin.app/security/jwt_keys.html">JWT with keys / JWKS</a></li>
+							</ul>
+						</li>
+						<li><a href = "https://docs.olivetin.app/security/trusted_header.html">Trusted header authorization</a> — common with reverse proxies</li>
+						<li><a href = "https://docs.olivetin.app/security/api_keys.html">API keys</a> — for scripts and integrations</li>
+						<li><a href = "https://docs.olivetin.app/security/example_login_required.html">Example: require login</a></li>
+					</ul>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/security/concepts.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: security concepts
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Same app, different permissions</h2>
+					<p class = "section-lead">Access Control Lists decide who can view or run each action.</p>
+
+					<div class = "showcase-compare">
+						<figure class = "showcase-figure">
+							<img src = "resources/images/feature-screenshots/acl-contrast/acl-guest.png" alt = "Guest view of OliveTin showing only a few allowed actions" width = "960" height = "540" loading = "lazy" />
+							<figcaption><strong>Guest</strong> — only the buttons they are allowed.</figcaption>
+						</figure>
+						<figure class = "showcase-figure">
+							<img src = "resources/images/feature-screenshots/acl-contrast/acl-admin.png" alt = "Admin view of OliveTin showing many actions including reboot and backups" width = "960" height = "540" loading = "lazy" />
+							<figcaption><strong>Admin</strong> — the full set of actions.</figcaption>
+						</figure>
+					</div>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/security/acl.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: access control lists
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Generate templated buttons based on lists of things</h2>
+					<p class = "section-lead">Entities are lists of things - in YAML or JSON format. You can generate actions from lists of servers, containers, people, folders, days of the week or any other things..</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/entities-many-buttons/entities-many-buttons.png" alt = "OliveTin Actions page with Ping and Wake buttons generated per host entity" width = "960" height = "540" loading = "lazy" />
+						<figcaption>Ping and Wake actions generated for each host in an entity file.</figcaption>
+					</figure>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/entities/intro.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: entities
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Organize with dashboards</h2>
+					<p class = "section-lead">Group actions into folders and fieldsets so busy setups stay clear.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/dashboard-layout/dashboard-layout.png" alt = "OliveTin dashboard with Media and Network sections" width = "960" height = "540" loading = "lazy" />
+						<figcaption>Media and Network sections instead of one long button grid.</figcaption>
+					</figure>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/dashboards/intro.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: dashboards
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Execution based on&hellip;</h2>
+					<p class = "section-lead">Actions are not only started by clicking a button. OliveTin can also run them when something else happens.</p>
+
+					<ul class = "trigger-list">
+						<li><a href = "https://docs.olivetin.app/action_execution/oncron.html">Cron schedule</a></li>
+						<li><a href = "https://docs.olivetin.app/action_execution/onwebhook.html">Webhook</a></li>
+						<li><a href = "https://docs.olivetin.app/action_execution/onfilechanged.html">File changed in a directory</a></li>
+						<li><a href = "https://docs.olivetin.app/action_execution/onfilecreated.html">File created in a directory</a></li>
+						<li><a href = "https://docs.olivetin.app/action_execution/oncalendar.html">Calendar file</a></li>
+					</ul>
+
+					<div class = "showcase-compare">
+						<figure class = "showcase-figure">
+							<img src = "resources/images/feature-screenshots/cron-scheduled/cron-scheduled.png" alt = "OliveTin logs showing a nightly backup run on a cron schedule" width = "960" height = "540" loading = "lazy" />
+							<figcaption>Cron — scheduled runs show up in logs.</figcaption>
+						</figure>
+						<figure class = "showcase-figure">
+							<img src = "resources/images/feature-screenshots/webhook-trigger/webhook-trigger.png" alt = "OliveTin logs showing an action triggered by a webhook" width = "960" height = "540" loading = "lazy" />
+							<figcaption>Webhooks — external systems can start actions too.</figcaption>
+						</figure>
+					</div>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/action_execution/triggers.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: triggers
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>Remote commands over SSH</h2>
+					<p class = "section-lead">Buttons can run on other hosts — OliveTin stays the simple front door.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/ssh-remote/ssh-remote.png" alt = "OliveTin actions for restarting a remote web server and checking uptime over SSH" width = "960" height = "540" loading = "lazy" />
+					</figure>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/action_examples/ssh-easy.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: SSH (easy setup)
+						</a>
+					</p>
+				</div>
+			</div>
+
+			<div class = "alt-section">
+				<div class = "contentWrap">
+					<h2>From a phone or wall tablet</h2>
+					<p class = "section-lead">Simplify complex or long-running commands and put them where people already are.</p>
+
+					<figure class = "showcase-figure showcase-figure--narrow">
+						<img src = "resources/images/feature-screenshots/mobile-touch/mobile-touch.png" alt = "OliveTin mobile layout with home and server actions as large touch buttons" width = "480" height = "800" loading = "lazy" />
+					</figure>
+
+					<ul>
+						<li>eg: Expose complex commands on touchscreen tablets stuck on walls around your house. <tt>wake-on-lan aa:bb:cc:11:22:33</tt></li>
+						<li>eg: Run long-lived commands on your servers from your cell phone. <tt>apt update &amp;&amp; apt upgrade -y</tt></li>
+						<li>eg: Define complex commands with lots of preset arguments, and turn a few arguments into dropdown select boxes.</li>
+					</ul>
+
+					<p class = "section-docs">
+						<a class = "btn btn-secondary" href = "https://docs.olivetin.app/action_examples/intro.html">
+							<i class="hgi-stroke hgi-book-open-02" aria-hidden="true"></i>
+							Docs: action examples
+						</a>
+					</p>
 				</div>
 			</div>
 
 			<div class = "alt-section">
 				<div class = "contentWrap">
 
-				<h2>Use case: <strong>Simplify</strong> complex commands, make them accessible and repeatable;</h2>
-				<ul>
-					<li>eg: Expose complex commands on touchscreen tablets stuck on walls around your house. <tt>wake-on-lan aa:bb:cc:11:22:33</tt></li>
-					<li>eg: Run long-lived commands on your servers from your cell phone. <tt>dnf update -y</tt></li>
-					<li>eg: Define complex commands with lots of preset arguments, and turn a few arguments into dropdown select boxes. <tt>docker rm {{ container }} && docker create {{ container }} && docker start {{ container }}</tt></li>
-				</ul>
-				</div>
-				</div>
-
-			<div class = "alt-section">
-				<div class = "contentWrap">
-
-				<h2>Features</h2>
+				<h2>Features summary</h2>
 
 				<ul class = "bigblocks">
 					<li>
-						<i class="hgi-stroke hgi-security-check" aria-hidden="true"></i>
-						<strong><a href = "https://docs.olivetin.app/security/acl.html">Access Control Lists</a></strong>
-						Decide exactly who can view or run each action — guests, family, or junior admins get only the buttons you allow.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/security/concepts.html">
+							<i class="hgi-stroke hgi-user-lock-01" aria-hidden="true"></i>
+							<strong>Flexible login</strong>
+							<span>Local users, OAuth2, JWT, trusted headers, and API keys — use the auth that already fits your setup.</span>
+						</a>
 					</li>
 					<li>
-						<i class="hgi-stroke hgi-text-check" aria-hidden="true"></i>
-						<strong><a href = "https://docs.olivetin.app/args/intro.html">Typed arguments</a></strong>
-						Turn commands into forms with dropdowns and validated inputs, so users can fill in options without a free-form shell.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/security/acl.html">
+							<i class="hgi-stroke hgi-security-check" aria-hidden="true"></i>
+							<strong>Access Control Lists</strong>
+							<span>Decide exactly who can view or run each action — guests, family, or junior admins get only the buttons you allow.</span>
+						</a>
 					</li>
 					<li>
-						<i class="hgi-stroke hgi-hierarchy-square-02" aria-hidden="true"></i>
-						<strong><a href = "https://docs.olivetin.app/entities/intro.html">Entities</a></strong>
-						Generate actions from lists of hosts, containers, or other “things” on disk — one template, many buttons.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/args/intro.html">
+							<i class="hgi-stroke hgi-text-check" aria-hidden="true"></i>
+							<strong>Typed arguments</strong>
+							<span>Turn commands into forms with dropdowns and validated inputs, so users can fill in options without a free-form shell.</span>
+						</a>
 					</li>
 					<li>
-						<i class="hgi-stroke hgi-dashboard-square-01" aria-hidden="true"></i>
-						<strong><a href = "https://docs.olivetin.app/dashboards/intro.html">Dashboards</a></strong>
-						Organize actions into folders and fieldsets so busy setups stay clear instead of one long button grid.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/entities/intro.html">
+							<i class="hgi-stroke hgi-hierarchy-square-02" aria-hidden="true"></i>
+							<strong>Entities</strong>
+							<span>Generate actions from lists of hosts, containers, or other “things” on disk — one template, many buttons.</span>
+						</a>
 					</li>
 					<li>
-						<i class="hgi-stroke hgi-calendar-03" aria-hidden="true"></i>
-						<strong><a href = "https://docs.olivetin.app/action_execution/oncron.html">Schedules &amp; webhooks</a></strong>
-						Run actions on cron, or trigger them from CI, monitoring, and other systems via authenticated webhooks.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/dashboards/intro.html">
+							<i class="hgi-stroke hgi-dashboard-square-01" aria-hidden="true"></i>
+							<strong>Dashboards</strong>
+							<span>Organize actions into folders and fieldsets so busy setups stay clear instead of one long button grid.</span>
+						</a>
 					</li>
 					<li>
-						<i class="hgi-stroke hgi-document-code" aria-hidden="true"></i>
-						<strong><a href = "https://docs.olivetin.app/config.html">YAML configuration</a></strong>
-						Define every button in simple config-as-code — easy to version, copy, and share.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/action_execution/triggers.html">
+							<i class="hgi-stroke hgi-calendar-03" aria-hidden="true"></i>
+							<strong>Flexible triggers</strong>
+							<span>Run actions on cron, webhooks, calendar files, or when files are created or changed in a directory.</span>
+						</a>
 					</li>
 					<li>
-						<i class="hgi-stroke hgi-command-line" aria-hidden="true"></i>
-						<strong>Integrate with anything</strong>
-						It just runs shell commands — curl, docker, SSH, your own scripts — so anything your shell can do becomes a button.
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/config.html">
+							<i class="hgi-stroke hgi-document-code" aria-hidden="true"></i>
+							<strong>YAML configuration</strong>
+							<span>Define every button in simple config-as-code — easy to version, copy, and share.</span>
+						</a>
+					</li>
+					<li>
+						<a class = "bigblock-link" href = "https://docs.olivetin.app/action_execution/shellvsexec.html">
+							<i class="hgi-stroke hgi-command-line" aria-hidden="true"></i>
+							<strong>Integrate with anything</strong>
+							<span>It just runs shell commands — curl, containers, SSH, your own scripts — so anything your shell can do becomes a button.</span>
+						</a>
 					</li>
 				</ul>
 				</div>
@@ -157,9 +449,9 @@
 <span class="pl-c"><span class="pl-c">#</span> Actions (buttons) to show up on the WebUI:</span>
 <span class="pl-ent">actions</span>:
   <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/solutions/container-control-panel/index.html</span>
-- <span class="pl-ent">title</span>: <span class="pl-s">Restart Plex</span>
+- <span class="pl-ent">title</span>: <span class="pl-s">Restart Media Server</span>
   <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
-  <span class="pl-ent">shell</span>: <span class="pl-s">docker restart plex</span>
+  <span class="pl-ent">shell</span>: <span class="pl-s">systemctl restart media-server</span>
 
   <span class="pl-c"><span class="pl-c">#</span> This will send 1 ping</span>
   <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action_examples/ping.html</span>
@@ -177,11 +469,11 @@
 	  <span class="pl-ent">type</span>: <span class="pl-s">int</span>
 	  <span class="pl-ent">default</span>: <span class="pl-c1">1</span>
 
-  <span class="pl-c"><span class="pl-c">#</span> Restart http on host "webserver1"</span>
+  <span class="pl-c"><span class="pl-c">#</span> Restart the web server on host "webserver1"</span>
   <span class="pl-c"><span class="pl-c">#</span> Docs: https://docs.olivetin.app/action_examples/ssh-easy.html</span>
-- <span class="pl-ent">title</span>: <span class="pl-s">restart httpd</span>
+- <span class="pl-ent">title</span>: <span class="pl-s">Restart web server</span>
   <span class="pl-ent">icon</span>: <span class="pl-s">restart</span>
-  <span class="pl-ent">shell</span>: <span class="pl-s">ssh root@webserver1 'service httpd restart'</span>
+  <span class="pl-ent">shell</span>: <span class="pl-s">ssh root@webserver1 'systemctl restart web-server'</span>
 </pre></div>
 			<p>
 			Find out all about how to configure OliveTin in the <a href = "https://docs.olivetin.app/config.html">Configuration</a> section of the documentation.
@@ -195,6 +487,11 @@
 					<h2>Installation</h2>
 
 					<p>Installation instructions can be found on the <a href = "https://docs.olivetin.app/install/intro.html">OliveTin installation documentation page</a>.</p>
+
+					<figure class = "showcase-figure">
+						<img src = "resources/images/feature-screenshots/hello-world/hello-world.png" alt = "OliveTin with a single Say Hello World action after a minimal install" width = "960" height = "540" loading = "lazy" />
+						<figcaption>From zero to a working button — start with Hello World, then grow the config.</figcaption>
+					</figure>
 
 					<h2 id = "opensource">Open Source &amp; No Nonsense</h2>
 
